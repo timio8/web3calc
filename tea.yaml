@@ -1,0 +1,36 @@
+let currentNumber = "";
+let previousNumber = "";
+let operator = "";
+
+// Replace with your BSC node provider URL
+const providerURL = "wss://bsc-dataseed.binance.org/ws";
+
+async function connectToBSC() {
+  try {
+    const web3 = new Web3(window.ethereum || new Web3.Provider(providerURL));
+    await ethereum.enable(); // Request wallet connection
+    console.log("Connected to BSC node!");
+    // ... (further functionalities using web3 object)
+  } catch (error) {
+    console.error("Error connecting to BSC:", error);
+  }
+}
+
+connectToBSC(); // Call on page load to attempt connection
+
+function appendNumber(number) {
+  // ... (same logic as before)
+}
+
+// ... (other functions same as before)
+
+// Example function demonstrating BSC interaction (replace with your logic)
+async function getBnbBalance(address) {
+  if (!window.ethereum) { // Check for wallet connection
+    alert("Please connect your BSC wallet!");
+    return;
+  }
+  const web3 = new Web3(window.ethereum);
+  const balance = await web3.eth.getBalance(address);
+  console.log("BNB Balance:", web3.utils.fromWei(balance, 'ether'));
+}
